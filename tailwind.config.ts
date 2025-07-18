@@ -61,7 +61,34 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom Elistro Colors
+				elistro: {
+					gold: 'hsl(var(--elistro-gold))',
+					'gold-light': 'hsl(var(--elistro-gold-light))',
+					sapphire: 'hsl(var(--elistro-sapphire))',
+					charcoal: 'hsl(var(--elistro-charcoal))',
+					light: 'hsl(var(--elistro-light))'
 				}
+			},
+			fontFamily: {
+				'montserrat': ['Montserrat', 'sans-serif'],
+				'playfair': ['Playfair Display', 'serif'],
+				'sans': ['Montserrat', 'sans-serif'],
+				'serif': ['Playfair Display', 'serif']
+			},
+			backgroundImage: {
+				'luxury-gradient': 'var(--gradient-luxury)',
+				'depth-gradient': 'var(--gradient-depth)'
+			},
+			boxShadow: {
+				'luxury': 'var(--shadow-luxury)',
+				'elegant': 'var(--shadow-elegant)',
+				'glow': 'var(--shadow-glow)'
+			},
+			transitionTimingFunction: {
+				'elegant': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
