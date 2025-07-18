@@ -1,16 +1,20 @@
 import { Navigation } from '@/components/Navigation';
 import { HeroSection } from '@/components/HeroSection';
 import { ProductShowcase } from '@/components/ProductShowcase';
+import { CollectionSection } from '@/components/CollectionSection';
 import { AboutSection } from '@/components/AboutSection';
+import { SideShowcase } from '@/components/SideShowcase';
 import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       <Navigation />
+      <SideShowcase />
       <main>
         <HeroSection />
         <ProductShowcase />
+        <CollectionSection />
         <AboutSection />
       </main>
       <Footer />

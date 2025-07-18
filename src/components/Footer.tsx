@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Scene3D } from './Scene3D';
 import { 
   Instagram, 
   Facebook, 
@@ -12,8 +13,37 @@ import {
 
 export const Footer = () => {
   return (
-    <footer className="bg-elistro-charcoal border-t border-border/20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <footer className="relative bg-elistro-charcoal border-t border-border/20 overflow-hidden">
+      {/* 3D Background Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 right-0 w-96 h-96">
+          <Scene3D 
+            className="w-full h-full"
+            eyewearColor="#B8860B"
+            autoRotate={true}
+            enableControls={false}
+          />
+        </div>
+      </div>
+      
+      {/* Floating Product Images */}
+      <div className="absolute top-10 left-10 w-20 h-20 rounded-full overflow-hidden elegant-card p-2 animate-float opacity-20">
+        <img 
+          src="/lovable-uploads/bffdc00a-e349-4760-87e5-d3245ccd89a0.png"
+          alt="Elistro"
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
+      
+      <div className="absolute bottom-20 right-20 w-24 h-24 rounded-full overflow-hidden elegant-card p-2 animate-float opacity-20" style={{ animationDelay: '2s' }}>
+        <img 
+          src="/lovable-uploads/f016259a-3064-405a-a0a7-d6dce95c81df.png"
+          alt="Elistro"
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* Brand Section */}
