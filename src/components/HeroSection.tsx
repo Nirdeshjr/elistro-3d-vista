@@ -38,31 +38,6 @@ export const HeroSection = () => {
                 Explore Collection
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-              
-              <Button 
-                variant="outline" 
-                className="border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300"
-              >
-                Virtual Try-On
-              </Button>
-            </div>
-            
-            {/* Stats */}
-            <div className="flex items-center justify-center lg:justify-start gap-8 pt-8">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">500+</div>
-                <div className="text-sm text-muted-foreground">Unique Designs</div>
-              </div>
-              <div className="w-px h-12 bg-border" />
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">25+</div>
-                <div className="text-sm text-muted-foreground">Years of Craft</div>
-              </div>
-              <div className="w-px h-12 bg-border" />
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">50k+</div>
-                <div className="text-sm text-muted-foreground">Happy Customers</div>
-              </div>
             </div>
           </div>
           

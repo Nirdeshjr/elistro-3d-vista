@@ -111,13 +111,6 @@ export const ProductCard = ({
           </div>
         </div>
 
-        <Button 
-          className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
-          variant="outline"
-        >
-          Add to Cart
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Button>
       </div>
     </div>
   );
