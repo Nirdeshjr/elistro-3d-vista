@@ -1,63 +1,130 @@
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Award, Users, Eye, Sparkles } from 'lucide-react';
+import { Scene3D } from '@/components/Scene3D';
+import { Award, Users, Heart, Shield, ArrowRight, Globe, Sparkles, Eye } from 'lucide-react';
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="relative py-24 bg-depth-gradient overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-10 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-10 right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000" />
-          </div>
-          
-          <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20 mb-6">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium">Since 2010</span>
-            </div>
-            
-            <h1 className="hero-title mb-6">Crafting Vision, <span className="text-gradient">Defining Style</span></h1>
-            <p className="subtitle max-w-3xl mx-auto">
-              At Elistro, we believe that exceptional eyewear is more than just a vision correction tool—it's a statement of personal style, a reflection of your unique perspective on the world.
-            </p>
-          </div>
-        </section>
-
-        {/* Story Section */}
-        <section className="py-20">
+      <main>
+        {/* Our Story Section */}
+        <section className="py-20 lg:py-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6">Our Story</h2>
-                <div className="space-y-6 text-muted-foreground">
-                  <p>
-                    Founded in 2010 by optical engineer Maria Elistro, our company emerged from a simple yet profound vision: to create eyewear that seamlessly blends cutting-edge technology with timeless design aesthetics.
+            
+            {/* Section Header */}
+            <div className="text-center mb-16">
+              <Badge className="mb-6 bg-primary/10 text-primary hover:bg-primary/20">
+                Our Story
+              </Badge>
+              <h2 className="text-4xl lg:text-5xl font-playfair font-bold mb-6">
+                Crafting <span className="text-gradient">Excellence</span>
+                <br />Since 1999
+              </h2>
+              <p className="subtitle max-w-3xl mx-auto">
+                Born from a passion for precision and an eye for beauty, Elistro has been 
+                redefining luxury eyewear for over two decades. Every frame tells a story 
+                of innovation, craftsmanship, and timeless elegance.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+              
+              {/* Content */}
+              <div className="space-y-8">
+                <div className="space-y-6">
+                  <h3 className="text-2xl lg:text-3xl font-playfair font-semibold">
+                    Where Art Meets Function
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    At Elistro, we believe that eyewear is more than just a functional accessory—it's 
+                    a statement of personal style and an extension of your personality. Our master 
+                    craftsmen combine traditional techniques with cutting-edge technology to create 
+                    frames that are not only beautiful but built to last.
                   </p>
-                  <p>
-                    What started as a small workshop in Milan has grown into a globally recognized brand, yet we remain true to our artisanal roots. Every frame is meticulously crafted by skilled artisans who understand that great eyewear requires both precision engineering and artistic vision.
-                  </p>
-                  <p>
-                    Today, Elistro represents the perfect harmony between traditional craftsmanship and modern innovation, serving customers who demand nothing less than excellence in their eyewear.
+                  <p className="text-muted-foreground leading-relaxed">
+                    From the initial sketch to the final polish, every pair of Elistro glasses 
+                    undergoes our meticulous 127-step quality process, ensuring that what reaches 
+                    your hands is nothing short of perfection.
                   </p>
                 </div>
+
+                <div className="space-y-4">
+                  <h4 className="text-lg font-playfair font-semibold">Our Commitment</h4>
+                  <ul className="space-y-3">
+                    {[
+                      'Sustainable materials and ethical sourcing',
+                      'Handcrafted precision in every detail',
+                      'Innovative lens technology for optimal vision',
+                      'Timeless designs that transcend trends'
+                    ].map((commitment, index) => (
+                      <li key={index} className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-primary rounded-full" />
+                        <span className="text-muted-foreground">{commitment}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <Button variant="luxury" size="lg">
+                  Discover Our Heritage
+                </Button>
               </div>
-              
+
+              {/* 3D Scene */}
               <div className="relative">
-                <div className="aspect-square rounded-2xl overflow-hidden elegant-card">
-                  <img 
-                    src="/lovable-uploads/bba69f44-a769-4e18-bb75-11a5fd43e156.png"
-                    alt="Elistro Craftsmanship"
-                    className="w-full h-full object-cover"
+                <div className="aspect-square bg-depth-gradient rounded-2xl overflow-hidden shadow-elegant">
+                  <Scene3D 
+                    className="w-full h-full"
+                    eyewearColor="#2C2C2C"
+                    autoRotate={true}
+                    enableControls={false}
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
+                
+                {/* Floating Elements */}
+                <div className="absolute -top-6 -right-6 elegant-card p-4 animate-float">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary">127</div>
+                    <div className="text-xs text-muted-foreground">Quality Steps</div>
+                  </div>
+                </div>
+                
+                <div className="absolute -bottom-6 -left-6 elegant-card p-4 animate-float" style={{ animationDelay: '2s' }}>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary">100%</div>
+                    <div className="text-xs text-muted-foreground">Handcrafted</div>
+                  </div>
+                </div>
               </div>
+            </div>
+
+            {/* Achievements Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+              {[
+                { icon: Award, title: '25+ Years', description: 'of Craftsmanship' },
+                { icon: Users, title: '50,000+', description: 'Happy Customers' },
+                { icon: Globe, title: '40+ Countries', description: 'Worldwide Reach' },
+                { icon: Sparkles, title: '500+ Designs', description: 'Unique Collections' },
+              ].map((achievement, index) => (
+                <div 
+                  key={index}
+                  className="text-center group"
+                >
+                  <div className="elegant-card p-8 transition-all duration-300 group-hover:shadow-glow">
+                    <achievement.icon className="w-10 h-10 text-primary mx-auto mb-4" />
+                    <div className="text-2xl lg:text-3xl font-bold text-gradient mb-2">
+                      {achievement.title}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {achievement.description}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
