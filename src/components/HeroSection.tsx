@@ -78,37 +78,41 @@ export const HeroSection = () => {
               </div>
             </div>
             
-            {/* Enhanced Floating Labels */}
+            {/* Product Navigation Cards */}
             <div className="absolute top-1/4 -left-4 lg:left-0">
-              <div className="elegant-card p-4 animate-float max-w-xs">
-                <div className="flex items-center gap-3 mb-2">
-                  <img 
-                    src="/lovable-uploads/f2c0511c-b997-4423-b0c7-0848e9f823d9.png"
-                    alt="Premium Materials"
-                    className="w-10 h-10 object-cover rounded"
-                  />
-                  <div>
-                    <div className="text-sm font-medium">Premium Materials</div>
-                    <div className="text-xs text-muted-foreground">Titanium & Acetate</div>
+              <a href="/sunglasses" className="block">
+                <div className="elegant-card p-4 animate-float max-w-xs cursor-pointer hover:scale-105 transition-transform">
+                  <div className="flex items-center gap-3 mb-2">
+                    <img 
+                      src="/lovable-uploads/f2c0511c-b997-4423-b0c7-0848e9f823d9.png"
+                      alt="Sunglasses Collection"
+                      className="w-12 h-12 object-cover rounded"
+                    />
+                    <div>
+                      <div className="text-sm font-medium">Sunglasses</div>
+                      <div className="text-xs text-muted-foreground">Explore Collection</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
             
             <div className="absolute bottom-1/4 -right-4 lg:right-0">
-              <div className="elegant-card p-4 animate-float max-w-xs" style={{ animationDelay: '3s' }}>
-                <div className="flex items-center gap-3 mb-2">
-                  <img 
-                    src="/lovable-uploads/bba69f44-a769-4e18-bb75-11a5fd43e156.png"
-                    alt="Precision Crafted"
-                    className="w-10 h-10 object-cover rounded"
-                  />
-                  <div>
-                    <div className="text-sm font-medium">Precision Crafted</div>
-                    <div className="text-xs text-muted-foreground">Handmade Excellence</div>
+              <a href="/eyeglasses" className="block">
+                <div className="elegant-card p-4 animate-float max-w-xs cursor-pointer hover:scale-105 transition-transform" style={{ animationDelay: '3s' }}>
+                  <div className="flex items-center gap-3 mb-2">
+                    <img 
+                      src="/lovable-uploads/bba69f44-a769-4e18-bb75-11a5fd43e156.png"
+                      alt="Eyeglasses Collection"
+                      className="w-12 h-12 object-cover rounded"
+                    />
+                    <div>
+                      <div className="text-sm font-medium">Eyeglasses</div>
+                      <div className="text-xs text-muted-foreground">Explore Collection</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>

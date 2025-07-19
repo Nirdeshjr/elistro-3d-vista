@@ -15,11 +15,11 @@ export const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Sunglasses', href: '#sunglasses' },
-    { name: 'Eyeglasses', href: '#eyeglasses' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Sunglasses', href: '/sunglasses' },
+    { name: 'Eyeglasses', href: '/eyeglasses' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
