@@ -61,9 +61,9 @@ export const HeroSection = () => {
           
           {/* Right Content - Auto-Scrolling Product Card */}
           <div className="relative flex justify-center">
-            <div className="elegant-card p-8 max-w-sm w-full animate-float">
-              <div className="relative group cursor-pointer">
-                <div className="aspect-square overflow-hidden rounded-lg mb-4">
+            <div className="elegant-card overflow-hidden max-w-sm w-full animate-float">
+              <div className="relative group cursor-pointer h-80">
+                <div className="h-4/5 overflow-hidden">
                   <img 
                     key={currentProduct}
                     src={products[currentProduct].image}
@@ -71,13 +71,8 @@ export const HeroSection = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="text-center space-y-2">
-                  <h3 className="text-xl font-playfair font-bold">{products[currentProduct].name}</h3>
-                  <p className="text-muted-foreground text-sm">Premium Collection</p>
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-2xl font-bold text-gradient">$399</span>
-                    <span className="text-sm text-muted-foreground line-through">$499</span>
-                  </div>
+                <div className="h-1/5 flex items-center justify-center p-4">
+                  <h3 className="text-xl font-playfair font-bold text-center">{products[currentProduct].name}</h3>
                 </div>
                 <div className="absolute bottom-2 right-2 flex space-x-1">
                   {products.map((_, index) => (
