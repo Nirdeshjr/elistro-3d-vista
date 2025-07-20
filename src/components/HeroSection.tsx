@@ -61,30 +61,33 @@ export const HeroSection = () => {
           
           {/* Right Content - Auto-Scrolling Product Card */}
           <div className="relative flex justify-center">
-            <div className="elegant-card max-w-sm w-full animate-float overflow-hidden">
-              <div className="relative h-64 flex transition-transform duration-500 ease-in-out">
-                <div className="flex-shrink-0 w-1/5 flex items-center justify-center bg-gradient-to-r from-primary/10 to-transparent">
-                  <h3 className="text-lg font-playfair font-bold text-center writing-vertical transform -rotate-90 whitespace-nowrap">
-                    {products[currentProduct].name}
-                  </h3>
-                </div>
-                <div className="flex-shrink-0 w-4/5 relative overflow-hidden">
+            <div className="elegant-card p-8 max-w-sm w-full animate-float">
+              <div className="relative group cursor-pointer">
+                <div className="aspect-square overflow-hidden rounded-lg mb-4">
                   <img 
                     key={currentProduct}
                     src={products[currentProduct].image}
                     alt={products[currentProduct].name}
-                    className="w-full h-full object-cover transition-opacity duration-500"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute bottom-2 right-2 flex space-x-1">
-                    {products.map((_, index) => (
-                      <div
-                        key={index}
-                        className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                          index === currentProduct ? 'bg-primary' : 'bg-white/50'
-                        }`}
-                      />
-                    ))}
+                </div>
+                <div className="text-center space-y-2">
+                  <h3 className="text-xl font-playfair font-bold">{products[currentProduct].name}</h3>
+                  <p className="text-muted-foreground text-sm">Premium Collection</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-2xl font-bold text-gradient">$399</span>
+                    <span className="text-sm text-muted-foreground line-through">$499</span>
                   </div>
+                </div>
+                <div className="absolute bottom-2 right-2 flex space-x-1">
+                  {products.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                        index === currentProduct ? 'bg-primary' : 'bg-white/50'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

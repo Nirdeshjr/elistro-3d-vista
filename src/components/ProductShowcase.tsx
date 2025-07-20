@@ -17,16 +17,6 @@ interface Product {
 
 const products: Product[] = [
   {
-    id: '1',
-    name: 'Aviator Classic',
-    price: '$299',
-    category: 'sunglasses',
-    color: '#B8860B',
-    features: ['Titanium Frame', 'UV Protection', 'Anti-Glare'],
-    rating: 4.9,
-    isNew: true
-  },
-  {
     id: '2',
     name: 'Metropolitan',
     price: '$249',
