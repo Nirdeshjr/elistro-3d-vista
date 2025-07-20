@@ -1,8 +1,26 @@
 import { Button } from '@/components/ui/button';
-import { Scene3D } from './Scene3D';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export const HeroSection = () => {
+  const products = [
+    { name: "Executive Gold", image: "/lovable-uploads/f2c0511c-b997-4423-b0c7-0848e9f823d9.png" },
+    { name: "Classic Black", image: "/lovable-uploads/4a195fd6-1967-4a63-a225-78d725fa2ff2.png" },
+    { name: "Vintage Brown", image: "/lovable-uploads/bba69f44-a769-4e18-bb75-11a5fd43e156.png" },
+    { name: "Modern Silver", image: "/lovable-uploads/bfbc8576-8506-4ab7-8c10-1eb417b825d3.png" },
+    { name: "Luxury Rose", image: "/lovable-uploads/bffdc00a-e349-4760-87e5-d3245ccd89a0.png" },
+    { name: "Premium Blue", image: "/lovable-uploads/eaf91e9d-d05c-4596-ab12-a288c79b3237.png" }
+  ];
+
+  const [currentProduct, setCurrentProduct] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentProduct((prev) => (prev + 1) % products.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [products.length]);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Gradient */}
@@ -41,23 +59,31 @@ export const HeroSection = () => {
             </div>
           </div>
           
-          {/* Right Content - Animated Product Card */}
+          {/* Right Content - Auto-Scrolling Product Card */}
           <div className="relative flex justify-center">
-            <div className="elegant-card p-8 max-w-sm w-full animate-float">
-              <div className="relative group cursor-pointer">
-                <div className="aspect-square overflow-hidden rounded-lg mb-4">
-                  <img 
-                    src="/lovable-uploads/f2c0511c-b997-4423-b0c7-0848e9f823d9.png"
-                    alt="Featured Eyewear"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+            <div className="elegant-card max-w-sm w-full animate-float overflow-hidden">
+              <div className="relative h-64 flex transition-transform duration-500 ease-in-out">
+                <div className="flex-shrink-0 w-1/5 flex items-center justify-center bg-gradient-to-r from-primary/10 to-transparent">
+                  <h3 className="text-lg font-playfair font-bold text-center writing-vertical transform -rotate-90 whitespace-nowrap">
+                    {products[currentProduct].name}
+                  </h3>
                 </div>
-                <div className="text-center space-y-2">
-                  <h3 className="text-xl font-playfair font-bold">Executive Gold</h3>
-                  <p className="text-muted-foreground text-sm">Premium Collection</p>
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-2xl font-bold text-gradient">$399</span>
-                    <span className="text-sm text-muted-foreground line-through">$499</span>
+                <div className="flex-shrink-0 w-4/5 relative overflow-hidden">
+                  <img 
+                    key={currentProduct}
+                    src={products[currentProduct].image}
+                    alt={products[currentProduct].name}
+                    className="w-full h-full object-cover transition-opacity duration-500"
+                  />
+                  <div className="absolute bottom-2 right-2 flex space-x-1">
+                    {products.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                          index === currentProduct ? 'bg-primary' : 'bg-white/50'
+                        }`}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
