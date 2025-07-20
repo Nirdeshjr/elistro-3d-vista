@@ -41,78 +41,26 @@ export const HeroSection = () => {
             </div>
           </div>
           
-          {/* Right Content - 3D Scene with Real Products */}
-          <div className="relative">
-            <div className="aspect-square max-w-lg mx-auto relative">
-              {/* Main 3D Scene */}
-              <Scene3D 
-                className="w-full h-full"
-                eyewearColor="#B8860B"
-                autoRotate={true}
-                enableControls={true}
-              />
-              
-              {/* Floating Product Images */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 rounded-full overflow-hidden elegant-card p-2 animate-float">
-                <img 
-                  src="/lovable-uploads/bffdc00a-e349-4760-87e5-d3245ccd89a0.png"
-                  alt="Elistro Collection"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
-              
-              <div className="absolute -bottom-4 -right-4 w-28 h-28 rounded-full overflow-hidden elegant-card p-2 animate-float" style={{ animationDelay: '2s' }}>
-                <img 
-                  src="/lovable-uploads/eaf91e9d-d05c-4596-ab12-a288c79b3237.png"
-                  alt="Elistro Eyewear"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
-              
-              <div className="absolute top-1/2 -right-8 w-20 h-20 rounded-full overflow-hidden elegant-card p-2 animate-float" style={{ animationDelay: '4s' }}>
-                <img 
-                  src="/lovable-uploads/4a195fd6-1967-4a63-a225-78d725fa2ff2.png"
-                  alt="Blue Light Collection"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
-            </div>
-            
-            {/* Product Navigation Cards */}
-            <div className="absolute top-1/4 -left-4 lg:left-0">
-              <a href="/sunglasses" className="block">
-                <div className="elegant-card p-4 animate-float max-w-xs cursor-pointer hover:scale-105 transition-transform">
-                  <div className="flex items-center gap-3 mb-2">
-                    <img 
-                      src="/lovable-uploads/f2c0511c-b997-4423-b0c7-0848e9f823d9.png"
-                      alt="Sunglasses Collection"
-                      className="w-12 h-12 object-cover rounded"
-                    />
-                    <div>
-                      <div className="text-sm font-medium">Sunglasses</div>
-                      <div className="text-xs text-muted-foreground">Explore Collection</div>
-                    </div>
+          {/* Right Content - Animated Product Card */}
+          <div className="relative flex justify-center">
+            <div className="elegant-card p-8 max-w-sm w-full animate-float">
+              <div className="relative group cursor-pointer">
+                <div className="aspect-square overflow-hidden rounded-lg mb-4">
+                  <img 
+                    src="/lovable-uploads/f2c0511c-b997-4423-b0c7-0848e9f823d9.png"
+                    alt="Featured Eyewear"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="text-center space-y-2">
+                  <h3 className="text-xl font-playfair font-bold">Executive Gold</h3>
+                  <p className="text-muted-foreground text-sm">Premium Collection</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-2xl font-bold text-gradient">$399</span>
+                    <span className="text-sm text-muted-foreground line-through">$499</span>
                   </div>
                 </div>
-              </a>
-            </div>
-            
-            <div className="absolute bottom-1/4 -right-4 lg:right-0">
-              <a href="/eyeglasses" className="block">
-                <div className="elegant-card p-4 animate-float max-w-xs cursor-pointer hover:scale-105 transition-transform" style={{ animationDelay: '3s' }}>
-                  <div className="flex items-center gap-3 mb-2">
-                    <img 
-                      src="/lovable-uploads/bba69f44-a769-4e18-bb75-11a5fd43e156.png"
-                      alt="Eyeglasses Collection"
-                      className="w-12 h-12 object-cover rounded"
-                    />
-                    <div>
-                      <div className="text-sm font-medium">Eyeglasses</div>
-                      <div className="text-xs text-muted-foreground">Explore Collection</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
