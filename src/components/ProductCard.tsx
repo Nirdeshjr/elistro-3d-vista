@@ -40,8 +40,8 @@ export const ProductCard = ({ name, price, image, viewMode = 'grid' }: ProductCa
 
   return (
     <div className="group cursor-pointer">
-      <div className="elegant-card p-6 h-full transition-all duration-300 hover:scale-105">
-        <div className="aspect-square rounded-lg overflow-hidden mb-4 bg-card">
+      <div className="elegant-card overflow-hidden h-full transition-all duration-300 hover:scale-105">
+        <div className="h-4/5 overflow-hidden bg-card">
           <img 
             src={image}
             alt={name}
@@ -49,13 +49,10 @@ export const ProductCard = ({ name, price, image, viewMode = 'grid' }: ProductCa
           />
         </div>
         
-        <div className="space-y-2">
-          <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
+        <div className="h-1/5 p-4 flex items-center justify-center">
+          <h3 className="font-semibold text-lg text-center group-hover:text-primary transition-colors">
             {name}
           </h3>
-          <p className="text-2xl font-bold text-primary">
-            {price}
-          </p>
         </div>
       </div>
     </div>
