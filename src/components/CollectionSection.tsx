@@ -81,40 +81,77 @@ export const CollectionSection = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <Badge className="mb-6 bg-primary/10 text-primary hover:bg-primary/20">
-            <Sparkles className="w-4 h-4 mr-2" />
-            Premium Collections
-          </Badge>
-          <h2 className="text-4xl lg:text-5xl font-playfair font-bold mb-6">
-            Elistro <span className="text-gradient">Collections</span>
-          </h2>
-          <p className="subtitle max-w-3xl mx-auto">
-            Discover our curated collections designed specifically for the modern man and woman. 
-            Each piece represents the pinnacle of style, comfort, and innovation.
-          </p>
+        {/* Section Header with Animated Text */}
+        <div className="text-center mb-20">
+          <div className="relative">
+            <h2 className="text-6xl lg:text-8xl font-playfair font-bold mb-8 relative">
+              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.2s' }}>E</span>
+              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.3s' }}>l</span>
+              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.4s' }}>i</span>
+              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.5s' }}>s</span>
+              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.6s' }}>t</span>
+              <span className="inline-block animate-fade-in" style={{ animationDelay: '0.7s' }}>r</span>
+              <span className="inline-block animate-fade-in text-gradient" style={{ animationDelay: '0.8s' }}>o</span>
+            </h2>
+            
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-primary/5 rounded-full blur-2xl animate-pulse" />
+          </div>
+          
+          <div className="space-y-6 max-w-4xl mx-auto">
+            <p className="text-2xl lg:text-3xl font-light text-muted-foreground animate-fade-in" style={{ animationDelay: '1s' }}>
+              Where <span className="text-gradient font-medium">Vision</span> Meets <span className="text-gradient font-medium">Style</span>
+            </p>
+            
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto animate-fade-in" style={{ animationDelay: '1.2s' }} />
+            
+            <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in" style={{ animationDelay: '1.4s' }}>
+              Crafted with precision, designed for perfection. Our collections represent the pinnacle of 
+              <br className="hidden lg:block" />
+              optical innovation and timeless elegance.
+            </p>
+          </div>
         </div>
 
-        {/* Collection Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="elegant-card p-2 flex gap-2">
-            <Button
-              variant={activeTab === 'men' ? 'luxury' : 'ghost'}
-              onClick={() => setActiveTab('men')}
-              className="flex items-center gap-2 px-6 py-3"
-            >
-              <Users className="w-4 h-4" />
-              Men's Collection
-            </Button>
-            <Button
-              variant={activeTab === 'women' ? 'luxury' : 'ghost'}
-              onClick={() => setActiveTab('women')}
-              className="flex items-center gap-2 px-6 py-3"
-            >
-              <Crown className="w-4 h-4" />
-              Women's Collection
-            </Button>
+        {/* Elegant Collection Navigation */}
+        <div className="flex justify-center mb-16">
+          <div className="relative">
+            <div className="flex gap-8 items-center">
+              <button
+                onClick={() => setActiveTab('men')}
+                className={`group relative px-8 py-4 transition-all duration-500 ${
+                  activeTab === 'men' 
+                    ? 'text-primary' 
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <Users className="w-5 h-5 transition-transform group-hover:scale-110" />
+                  <span className="text-xl font-medium">Men's Collection</span>
+                </div>
+                {activeTab === 'men' && (
+                  <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent animate-fade-in" />
+                )}
+              </button>
+              
+              <div className="w-px h-12 bg-gradient-to-b from-transparent via-border to-transparent" />
+              
+              <button
+                onClick={() => setActiveTab('women')}
+                className={`group relative px-8 py-4 transition-all duration-500 ${
+                  activeTab === 'women' 
+                    ? 'text-primary' 
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <Crown className="w-5 h-5 transition-transform group-hover:scale-110" />
+                  <span className="text-xl font-medium">Women's Collection</span>
+                </div>
+                {activeTab === 'women' && (
+                  <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent animate-fade-in" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
 

@@ -12,8 +12,8 @@ const Index = () => {
       <SideShowcase />
       <main>
         <HeroSection />
-        <ProductShowcase />
         <CollectionSection />
+        <ProductShowcase />
       </main>
       <Footer />
     </div>

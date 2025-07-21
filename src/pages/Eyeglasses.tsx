@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { ProductCard } from '@/components/ProductCard';
+import { ProductDetail } from '@/components/ProductDetail';
 import { 
   Pagination,
   PaginationContent,
@@ -86,6 +87,7 @@ const Eyeglasses = () => {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [priceFilter, setPriceFilter] = useState("all");
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [selectedProduct, setSelectedProduct] = useState<typeof eyeglassesProducts[0] | null>(null);
   
   const itemsPerPage = 6;
 
@@ -209,13 +211,14 @@ const Eyeglasses = () => {
                 : "space-y-6"
               }>
                 {paginatedProducts.map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    name={product.name}
-                    price={`$${product.price}`}
-                    image={product.image}
-                    viewMode={viewMode}
-                  />
+                  <div key={product.id} onClick={() => setSelectedProduct(product)}>
+                    <ProductCard
+                      name={product.name}
+                      price={`$${product.price}`}
+                      image={product.image}
+                      viewMode={viewMode}
+                    />
+                  </div>
                 ))}
               </div>
             ) : (
@@ -264,6 +267,13 @@ const Eyeglasses = () => {
           </div>
         </section>
       </main>
+
+      {selectedProduct && (
+        <ProductDetail 
+          product={selectedProduct} 
+          onClose={() => setSelectedProduct(null)} 
+        />
+      )}
 
       <Footer />
     </div>
