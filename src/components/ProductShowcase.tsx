@@ -17,15 +17,6 @@ interface Product {
 
 const products: Product[] = [
   {
-    id: '2',
-    name: 'Metropolitan',
-    price: '$249',
-    category: 'eyeglasses',
-    color: '#2C2C2C',
-    features: ['Acetate Frame', 'Blue Light Filter', 'Lightweight'],
-    rating: 4.8
-  },
-  {
     id: '3',
     name: 'Sapphire Elite',
     price: '$399',

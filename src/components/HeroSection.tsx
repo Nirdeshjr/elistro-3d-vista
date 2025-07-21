@@ -61,8 +61,14 @@ export const HeroSection = () => {
           
           {/* Right Content - Auto-Scrolling Product Card */}
           <div className="relative flex justify-center">
-            <div className="elegant-card overflow-hidden max-w-sm w-full animate-float">
-              <div className="relative group cursor-pointer h-80">
+            <div className="elegant-card overflow-hidden max-w-lg w-full animate-float">
+              <div 
+                className="relative group cursor-pointer h-96"
+                onClick={() => {
+                  // Simple product detail display
+                  alert(`${products[currentProduct].name}\n\nProduct Details:\n• Premium quality frame\n• Anti-glare coating\n• UV protection\n• Lightweight design\n• Available in multiple colors`);
+                }}
+              >
                 <div className="h-4/5 overflow-hidden">
                   <img 
                     key={currentProduct}

@@ -208,27 +208,6 @@ export const CollectionSection = () => {
           ))}
         </div>
 
-        {/* Collection Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {[
-            { number: '150+', label: "Men's Styles", icon: Users },
-            { number: '200+', label: "Women's Styles", icon: Crown },
-            { number: '25+', label: 'New Arrivals', icon: Sparkles },
-            { number: '98%', label: 'Satisfaction Rate', icon: ArrowRight }
-          ].map((stat, index) => (
-            <div key={index} className="text-center group">
-              <div className="elegant-card p-6 transition-all duration-300 group-hover:shadow-glow">
-                <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-2xl lg:text-3xl font-bold text-gradient mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {stat.label}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
       </div>
     </section>
