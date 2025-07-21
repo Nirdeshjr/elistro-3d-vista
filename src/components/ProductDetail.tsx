@@ -15,6 +15,8 @@ interface ProductDetailProps {
 }
 
 export const ProductDetail = ({ product, onClose }: ProductDetailProps) => {
+  const [selectedImage, setSelectedImage] = React.useState(product.image);
+  
   const relatedImages = [
     product.image,
     '/lovable-uploads/bba69f44-a769-4e18-bb75-11a5fd43e156.png',
@@ -47,7 +49,7 @@ export const ProductDetail = ({ product, onClose }: ProductDetailProps) => {
             <div className="space-y-6">
               <div className="aspect-square rounded-xl overflow-hidden bg-card border">
                 <img 
-                  src={product.image} 
+                  src={selectedImage} 
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
@@ -55,7 +57,13 @@ export const ProductDetail = ({ product, onClose }: ProductDetailProps) => {
               
               <div className="grid grid-cols-4 gap-3">
                 {relatedImages.map((img, index) => (
-                  <div key={index} className="aspect-square rounded-lg overflow-hidden bg-card border cursor-pointer hover:ring-2 hover:ring-primary transition-all">
+                  <div 
+                    key={index} 
+                    className={`aspect-square rounded-lg overflow-hidden bg-card border cursor-pointer hover:ring-2 hover:ring-primary transition-all ${
+                      selectedImage === img ? 'ring-2 ring-primary' : ''
+                    }`}
+                    onClick={() => setSelectedImage(img)}
+                  >
                     <img 
                       src={img} 
                       alt={`${product.name} view ${index + 1}`}

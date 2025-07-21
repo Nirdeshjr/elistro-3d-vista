@@ -40,7 +40,7 @@ export const ProductCard = ({ name, price, image, viewMode = 'grid' }: ProductCa
 
   return (
     <div className="group cursor-pointer">
-      <div className="elegant-card overflow-hidden h-full transition-all duration-300 hover:scale-105">
+      <div className="elegant-card overflow-hidden transition-all duration-300 hover:scale-105 h-[400px] flex flex-col">
         <div className="h-4/5 overflow-hidden bg-card">
           <img 
             src={image}
