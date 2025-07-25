@@ -8,12 +8,13 @@ interface ProductCardProps {
   price: string;
   image: string;
   viewMode?: 'grid' | 'list';
+  onClick?: () => void;
 }
 
-export const ProductCard = ({ name, price, image, viewMode = 'grid' }: ProductCardProps) => {
+export const ProductCard = ({ name, price, image, viewMode = 'grid', onClick }: ProductCardProps) => {
   if (viewMode === 'list') {
     return (
-      <div className="group cursor-pointer">
+      <div className="group cursor-pointer" onClick={onClick}>
         <div className="elegant-card p-6 transition-all duration-300 hover:scale-[1.02]">
           <div className="flex gap-6 items-center">
             <div className="w-24 h-24 rounded-lg overflow-hidden bg-card flex-shrink-0">
@@ -39,7 +40,7 @@ export const ProductCard = ({ name, price, image, viewMode = 'grid' }: ProductCa
   }
 
   return (
-    <div className="group cursor-pointer">
+    <div className="group cursor-pointer" onClick={onClick}>
       <div className="elegant-card overflow-hidden transition-all duration-300 hover:scale-105 h-[400px] flex flex-col">
         <div className="h-4/5 overflow-hidden bg-card">
           <img 

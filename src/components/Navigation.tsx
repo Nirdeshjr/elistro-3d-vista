@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Logo3D } from './Logo3D';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 
 export const Navigation = () => {
@@ -30,7 +31,8 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex items-center gap-3">
+            <Logo3D className="w-10 h-10" />
             <h1 className="text-2xl lg:text-3xl font-playfair font-bold text-gradient">
               Elistro
             </h1>

@@ -238,11 +238,22 @@ export const CollectionSection = () => {
           </div>
         </div>
 
-        {/* Collection Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {(activeTab === 'men' ? menCollection : womenCollection).map((product) => (
+        {/* Collection Grid - Show only 3 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {(activeTab === 'men' ? menCollection : womenCollection).slice(0, 3).map((product) => (
             <ProductCard key={product.id} {...product} />
           ))}
+        </div>
+
+        {/* Show More Button */}
+        <div className="text-center">
+          <Button 
+            className="luxury-button group"
+            onClick={() => window.location.href = activeTab === 'men' ? '/mens-collection' : '/womens-collection'}
+          >
+            <span>Explore {activeTab === 'men' ? 'Men\'s' : 'Women\'s'} Collection</span>
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
         </div>
 
 
