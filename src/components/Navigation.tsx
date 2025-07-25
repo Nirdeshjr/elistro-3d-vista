@@ -32,7 +32,7 @@ export const Navigation = () => {
           
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center gap-3">
-            <Logo3D className="w-10 h-10" />
+            <Logo3D className="w-12 h-12 lg:w-16 lg:h-16" />
             <h1 className="text-2xl lg:text-3xl font-playfair font-bold text-gradient">
               Elistro
             </h1>

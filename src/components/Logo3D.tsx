@@ -5,13 +5,13 @@ import { Suspense } from 'react';
 const LogoMesh = () => {
   return (
     <mesh>
-      <boxGeometry args={[0.8, 0.8, 0.2]} />
+      <boxGeometry args={[1.2, 1.2, 0.3]} />
       <meshStandardMaterial
-        color="hsl(45, 73%, 55%)"
+        color="hsl(45, 73%, 60%)"
         metalness={0.9}
         roughness={0.1}
-        emissive="hsl(45, 73%, 20%)"
-        emissiveIntensity={0.3}
+        emissive="hsl(45, 73%, 25%)"
+        emissiveIntensity={0.5}
       />
     </mesh>
   );
