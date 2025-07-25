@@ -7,9 +7,11 @@ const LogoMesh = () => {
     <mesh>
       <boxGeometry args={[0.8, 0.8, 0.2]} />
       <meshStandardMaterial
-        color="hsl(45, 73%, 39%)"
-        metalness={0.8}
-        roughness={0.2}
+        color="hsl(45, 73%, 55%)"
+        metalness={0.9}
+        roughness={0.1}
+        emissive="hsl(45, 73%, 20%)"
+        emissiveIntensity={0.3}
       />
     </mesh>
   );
