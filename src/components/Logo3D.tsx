@@ -1,29 +1,17 @@
 import { Canvas } from '@react-three/fiber';
-import { Text3D, Center, OrbitControls } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { Suspense } from 'react';
 
 const LogoMesh = () => {
   return (
-    <Center>
-      <Text3D
-        font="/fonts/helvetiker_regular.typeface.json"
-        size={0.5}
-        height={0.1}
-        curveSegments={12}
-        bevelEnabled
-        bevelThickness={0.02}
-        bevelSize={0.02}
-        bevelOffset={0}
-        bevelSegments={5}
-      >
-        e
-        <meshStandardMaterial
-          color="#8B5CF6"
-          metalness={0.8}
-          roughness={0.2}
-        />
-      </Text3D>
-    </Center>
+    <mesh>
+      <boxGeometry args={[0.8, 0.8, 0.2]} />
+      <meshStandardMaterial
+        color="#8B5CF6"
+        metalness={0.8}
+        roughness={0.2}
+      />
+    </mesh>
   );
 };
 
