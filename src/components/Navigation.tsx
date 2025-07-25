@@ -71,13 +71,13 @@ export const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border/50">
+          <div className="lg:hidden py-4 border-t border-border/50 bg-background/95 backdrop-blur-md">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <a 
                   key={item.name} 
                   href={item.href} 
-                  className="nav-link text-center py-2"
+                  className="nav-link text-center py-2 text-foreground hover:text-primary"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
