@@ -22,14 +22,25 @@ export const ElistroLogo = ({ className = "", size = 32 }: ElistroLogoProps) => 
           fill="url(#gradient)" 
           strokeWidth="0"
         />
+        <circle 
+          cx="50" 
+          cy="50" 
+          r="35" 
+          fill="url(#innerGradient)" 
+          strokeWidth="0"
+        />
         <path 
-          d="M30 50 C30 38 38 30 50 30 C62 30 70 38 70 50 C70 55 68 60 65 63 L45 63 C42 63 40 61 40 58 C40 55 42 53 45 53 L58 53 C58 45 54 42 50 42 C46 42 42 45 42 50 C42 58 46 62 50 62 C54 62 57 60 58 57 L70 57 C68 67 60 70 50 70 C38 70 30 62 30 50 Z" 
-          fill="white"
+          d="M35 50 C35 42 41 36 49 36 C57 36 63 42 63 50 C63 53 62 56 60 58 L45 58 C43 58 42 57 42 55 C42 53 43 52 45 52 L55 52 C55 47 52 44 49 44 C46 44 43 47 43 50 C43 56 46 59 49 59 C52 59 54 57 55 55 L62 55 C60 61 55 64 49 64 C41 64 35 58 35 50 Z" 
+          fill="url(#gradient)"
         />
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="hsl(45, 73%, 60%)" />
             <stop offset="100%" stopColor="hsl(45, 73%, 45%)" />
+          </linearGradient>
+          <linearGradient id="innerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="hsl(45, 73%, 35%)" />
+            <stop offset="100%" stopColor="hsl(45, 73%, 25%)" />
           </linearGradient>
         </defs>
       </svg>
