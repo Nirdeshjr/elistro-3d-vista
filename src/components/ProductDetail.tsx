@@ -17,12 +17,29 @@ interface ProductDetailProps {
 export const ProductDetail = ({ product, onClose }: ProductDetailProps) => {
   const [selectedImage, setSelectedImage] = React.useState(product.image);
   
-  const relatedImages = [
-    product.image,
-    '/lovable-uploads/bba69f44-a769-4e18-bb75-11a5fd43e156.png',
-    '/lovable-uploads/eaf91e9d-d05c-4596-ab12-a288c79b3237.png',
-    '/lovable-uploads/f016259a-3064-405a-a0a7-d6dce95c81df.png'
-  ];
+  // Generate different angle images for each product
+  const getProductImages = (productId: string | number) => {
+    const baseImages = [
+      '/lovable-uploads/4a195fd6-1967-4a63-a225-78d725fa2ff2.png',
+      '/lovable-uploads/bba69f44-a769-4e18-bb75-11a5fd43e156.png',
+      '/lovable-uploads/eaf91e9d-d05c-4596-ab12-a288c79b3237.png',
+      '/lovable-uploads/f016259a-3064-405a-a0a7-d6dce95c81df.png',
+      '/lovable-uploads/bfbc8576-8506-4ab7-8c10-1eb417b825d3.png',
+      '/lovable-uploads/bffdc00a-e349-4760-87e5-d3245ccd89a0.png',
+      '/lovable-uploads/f2c0511c-b997-4423-b0c7-0848e9f823d9.png'
+    ];
+    
+    // Use product ID to determine which set of 4 images to show
+    const startIndex = (parseInt(String(productId)) % (baseImages.length - 3));
+    return [
+      product.image,
+      baseImages[startIndex],
+      baseImages[startIndex + 1],
+      baseImages[startIndex + 2]
+    ];
+  };
+  
+  const relatedImages = getProductImages(product.id);
 
   const features = [
     'Premium acetate frame',

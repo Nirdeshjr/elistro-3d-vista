@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Logo3D } from './Logo3D';
+import { ElistroLogo } from './ElistroLogo';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 
 export const Navigation = () => {
@@ -32,7 +32,7 @@ export const Navigation = () => {
           
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center gap-3">
-            <Logo3D className="w-12 h-12 lg:w-16 lg:h-16" />
+            <ElistroLogo size={isScrolled ? 32 : 40} className="transition-all duration-300" />
             <h1 className="text-2xl lg:text-3xl font-playfair font-bold text-gradient">
               Elistro
             </h1>
