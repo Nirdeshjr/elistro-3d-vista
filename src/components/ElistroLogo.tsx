@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { removeBackground, loadImage } from '../utils/backgroundRemoval';
 
 interface ElistroLogoProps {
   className?: string;
@@ -6,44 +7,55 @@ interface ElistroLogoProps {
 }
 
 export const ElistroLogo = ({ className = "", size = 32 }: ElistroLogoProps) => {
+  const [processedLogoUrl, setProcessedLogoUrl] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  useEffect(() => {
+    const processLogo = async () => {
+      setIsProcessing(true);
+      try {
+        // Fetch the uploaded logo image
+        const response = await fetch('/lovable-uploads/f4944267-f415-455e-a2e5-ae67ccf9dfc0.png');
+        const blob = await response.blob();
+        
+        // Load the image
+        const imageElement = await loadImage(blob);
+        
+        // Remove background
+        const processedBlob = await removeBackground(imageElement);
+        
+        // Create URL for the processed image
+        const url = URL.createObjectURL(processedBlob);
+        setProcessedLogoUrl(url);
+      } catch (error) {
+        console.error('Failed to process logo:', error);
+        // Fallback to original image
+        setProcessedLogoUrl('/lovable-uploads/f4944267-f415-455e-a2e5-ae67ccf9dfc0.png');
+      } finally {
+        setIsProcessing(false);
+      }
+    };
+
+    processLogo();
+  }, []);
+
+  if (isProcessing || !processedLogoUrl) {
+    return (
+      <div className={`flex items-center justify-center ${className}`} style={{ width: size, height: size }}>
+        <div className="animate-spin rounded-full border-2 border-primary border-t-transparent" style={{ width: size * 0.6, height: size * 0.6 }} />
+      </div>
+    );
+  }
+
   return (
     <div className={`flex items-center justify-center ${className}`}>
-      <svg 
-        width={size} 
-        height={size} 
-        viewBox="0 0 100 100" 
-        className="text-gradient"
-        fill="currentColor"
-      >
-        <circle 
-          cx="50" 
-          cy="50" 
-          r="45" 
-          fill="url(#gradient)" 
-          strokeWidth="0"
-        />
-        <circle 
-          cx="50" 
-          cy="50" 
-          r="35" 
-          fill="url(#innerGradient)" 
-          strokeWidth="0"
-        />
-        <path 
-          d="M35 50 C35 42 41 36 49 36 C57 36 63 42 63 50 C63 53 62 56 60 58 L45 58 C43 58 42 57 42 55 C42 53 43 52 45 52 L55 52 C55 47 52 44 49 44 C46 44 43 47 43 50 C43 56 46 59 49 59 C52 59 54 57 55 55 L62 55 C60 61 55 64 49 64 C41 64 35 58 35 50 Z" 
-          fill="url(#gradient)"
-        />
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(45, 73%, 60%)" />
-            <stop offset="100%" stopColor="hsl(45, 73%, 45%)" />
-          </linearGradient>
-          <linearGradient id="innerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(45, 73%, 35%)" />
-            <stop offset="100%" stopColor="hsl(45, 73%, 25%)" />
-          </linearGradient>
-        </defs>
-      </svg>
+      <img 
+        src={processedLogoUrl}
+        alt="Elistro Logo"
+        width={size}
+        height={size}
+        className="object-contain"
+      />
     </div>
   );
 };
