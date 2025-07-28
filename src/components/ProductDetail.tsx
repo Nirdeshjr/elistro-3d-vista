@@ -16,6 +16,8 @@ interface ProductDetailProps {
 
 export const ProductDetail = ({ product, onClose }: ProductDetailProps) => {
   const [selectedImage, setSelectedImage] = React.useState(product.image);
+  const [isZoomed, setIsZoomed] = React.useState(false);
+  const [hoveredImage, setHoveredImage] = React.useState<string | null>(null);
   
   // Generate different angle images for each product
   const getProductImages = (productId: string | number) => {
@@ -64,12 +66,27 @@ export const ProductDetail = ({ product, onClose }: ProductDetailProps) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Product Images */}
             <div className="space-y-6">
-              <div className="aspect-square rounded-xl overflow-hidden bg-card border">
+              <div 
+                className="aspect-square rounded-xl overflow-hidden bg-card border cursor-pointer relative"
+                onClick={() => setIsZoomed(!isZoomed)}
+                onMouseEnter={() => setHoveredImage(relatedImages[1])}
+                onMouseLeave={() => setHoveredImage(null)}
+              >
                 <img 
-                  src={selectedImage} 
+                  src={hoveredImage || selectedImage} 
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full object-cover transition-transform duration-300 ${
+                    isZoomed ? 'scale-150' : 'scale-100'
+                  }`}
                 />
+                {hoveredImage && (
+                  <div className="absolute top-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
+                    Hover view
+                  </div>
+                )}
+                <div className="absolute bottom-2 left-2 bg-black/50 text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity">
+                  Click to zoom
+                </div>
               </div>
               
               <div className="grid grid-cols-4 gap-3">
