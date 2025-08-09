@@ -22,7 +22,8 @@ const sunglassesProducts = [
     price: 299,
     image: "/lovable-uploads/f2c0511c-b997-4423-b0c7-0848e9f823d9.png",
     category: "men",
-    priceRange: "200-400"
+    collectionSeries: "Classic",
+    model: "Aviator Pro"
   },
   {
     id: 2,
@@ -30,7 +31,8 @@ const sunglassesProducts = [
     price: 249,
     image: "/lovable-uploads/bba69f44-a769-4e18-bb75-11a5fd43e156.png",
     category: "women",
-    priceRange: "200-400"
+    collectionSeries: "Heritage",
+    model: "Round Vintage"
   },
   {
     id: 3,
@@ -38,7 +40,8 @@ const sunglassesProducts = [
     price: 399,
     image: "/lovable-uploads/bffdc00a-e349-4760-87e5-d3245ccd89a0.png",
     category: "unisex",
-    priceRange: "200-400"
+    collectionSeries: "Active",
+    model: "Sport Elite"
   },
   {
     id: 4,
@@ -46,7 +49,8 @@ const sunglassesProducts = [
     price: 329,
     image: "/lovable-uploads/4a195fd6-1967-4a63-a225-78d725fa2ff2.png",
     category: "men",
-    priceRange: "200-400"
+    collectionSeries: "Heritage",
+    model: "Square Classic"
   },
   {
     id: 5,
@@ -54,7 +58,8 @@ const sunglassesProducts = [
     price: 279,
     image: "/lovable-uploads/eaf91e9d-d05c-4596-ab12-a288c79b3237.png",
     category: "women",
-    priceRange: "200-400"
+    collectionSeries: "Modern",
+    model: "Cat-Eye Chic"
   },
   {
     id: 6,
@@ -62,7 +67,8 @@ const sunglassesProducts = [
     price: 349,
     image: "/lovable-uploads/f016259a-3064-405a-a0a7-d6dce95c81df.png",
     category: "women",
-    priceRange: "200-400"
+    collectionSeries: "Glamour",
+    model: "Oversized Bold"
   },
   {
     id: 7,
@@ -70,7 +76,8 @@ const sunglassesProducts = [
     price: 199,
     image: "/lovable-uploads/bfbc8576-8506-4ab7-8c10-1eb417b825d3.png",
     category: "unisex",
-    priceRange: "100-300"
+    collectionSeries: "Modern",
+    model: "Minimal Edge"
   },
   {
     id: 8,
@@ -78,14 +85,16 @@ const sunglassesProducts = [
     price: 459,
     image: "/lovable-uploads/f2c0511c-b997-4423-b0c7-0848e9f823d9.png",
     category: "men",
-    priceRange: "400-600"
+    collectionSeries: "Signature",
+    model: "Bold Frame"
   }
 ];
 
 const Sunglasses = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState("all");
-  const [priceFilter, setPriceFilter] = useState("all");
+  const [collectionFilter, setCollectionFilter] = useState("all");
+  const [modelFilter, setModelFilter] = useState("all");
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [selectedProduct, setSelectedProduct] = useState<typeof sunglassesProducts[0] | null>(null);
   
@@ -93,8 +102,9 @@ const Sunglasses = () => {
 
   const filteredProducts = sunglassesProducts.filter(product => {
     const categoryMatch = categoryFilter === "all" || product.category === categoryFilter;
-    const priceMatch = priceFilter === "all" || product.priceRange === priceFilter;
-    return categoryMatch && priceMatch;
+    const collectionMatch = collectionFilter === "all" || product.collectionSeries === collectionFilter;
+    const modelMatch = modelFilter === "all" || product.model === modelFilter;
+    return categoryMatch && collectionMatch && modelMatch;
   });
 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
@@ -103,7 +113,8 @@ const Sunglasses = () => {
 
   const clearFilters = () => {
     setCategoryFilter("all");
-    setPriceFilter("all");
+    setCollectionFilter("all");
+    setModelFilter("all");
     setCurrentPage(1);
   };
 
@@ -146,19 +157,39 @@ const Sunglasses = () => {
                   </SelectContent>
                 </Select>
 
-                <Select value={priceFilter} onValueChange={setPriceFilter}>
+                <Select value={collectionFilter} onValueChange={setCollectionFilter}>
                   <SelectTrigger className="w-36">
-                    <SelectValue placeholder="Price Range" />
+                    <SelectValue placeholder="Collection" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Prices</SelectItem>
-                    <SelectItem value="100-300">$100 - $300</SelectItem>
-                    <SelectItem value="200-400">$200 - $400</SelectItem>
-                    <SelectItem value="400-600">$400 - $600</SelectItem>
+                    <SelectItem value="all">All Collections</SelectItem>
+                    <SelectItem value="Classic">Classic</SelectItem>
+                    <SelectItem value="Heritage">Heritage</SelectItem>
+                    <SelectItem value="Active">Active</SelectItem>
+                    <SelectItem value="Modern">Modern</SelectItem>
+                    <SelectItem value="Glamour">Glamour</SelectItem>
+                    <SelectItem value="Signature">Signature</SelectItem>
                   </SelectContent>
                 </Select>
 
-                {(categoryFilter !== "all" || priceFilter !== "all") && (
+                <Select value={modelFilter} onValueChange={setModelFilter}>
+                  <SelectTrigger className="w-36">
+                    <SelectValue placeholder="Model" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Models</SelectItem>
+                    <SelectItem value="Aviator Pro">Aviator Pro</SelectItem>
+                    <SelectItem value="Round Vintage">Round Vintage</SelectItem>
+                    <SelectItem value="Sport Elite">Sport Elite</SelectItem>
+                    <SelectItem value="Square Classic">Square Classic</SelectItem>
+                    <SelectItem value="Cat-Eye Chic">Cat-Eye Chic</SelectItem>
+                    <SelectItem value="Oversized Bold">Oversized Bold</SelectItem>
+                    <SelectItem value="Minimal Edge">Minimal Edge</SelectItem>
+                    <SelectItem value="Bold Frame">Bold Frame</SelectItem>
+                  </SelectContent>
+                </Select>
+
+                {(categoryFilter !== "all" || collectionFilter !== "all" || modelFilter !== "all") && (
                   <button
                     onClick={clearFilters}
                     className="text-sm text-primary hover:underline"
@@ -174,8 +205,11 @@ const Sunglasses = () => {
                   {categoryFilter !== "all" && (
                     <Badge variant="secondary">{categoryFilter}</Badge>
                   )}
-                  {priceFilter !== "all" && (
-                    <Badge variant="secondary">{priceFilter}</Badge>
+                  {collectionFilter !== "all" && (
+                    <Badge variant="secondary">{collectionFilter}</Badge>
+                  )}
+                  {modelFilter !== "all" && (
+                    <Badge variant="secondary">{modelFilter}</Badge>
                   )}
                 </div>
                 
