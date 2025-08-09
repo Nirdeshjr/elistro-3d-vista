@@ -3,6 +3,7 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { ProductCard } from '@/components/ProductCard';
 import { ProductDetail } from '@/components/ProductDetail';
+import { BackButton } from '@/components/BackButton';
 import { 
   Pagination,
   PaginationContent,
@@ -123,6 +124,11 @@ const Eyeglasses = () => {
       <Navigation />
       
       <main className="pt-20">
+        {/* Back Button */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-6">
+          <BackButton />
+        </div>
+
         {/* Header Section */}
         <section className="relative py-16 bg-depth-gradient">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">

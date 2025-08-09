@@ -1,5 +1,6 @@
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { BackButton } from '@/components/BackButton';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -13,6 +14,11 @@ const Contact = () => {
       <Navigation />
       
       <main className="pt-20">
+        {/* Back Button */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-6">
+          <BackButton />
+        </div>
+
         {/* Hero Section */}
         <section className="relative py-16 bg-depth-gradient">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">

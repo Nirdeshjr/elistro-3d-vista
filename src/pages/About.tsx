@@ -1,5 +1,6 @@
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { BackButton } from '@/components/BackButton';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Scene3D } from '@/components/Scene3D';
@@ -10,7 +11,11 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main>
+      <main className="pt-20">
+        {/* Back Button */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-6">
+          <BackButton />
+        </div>
         {/* Our Story Section */}
         <section className="py-20 lg:py-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
