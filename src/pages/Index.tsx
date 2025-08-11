@@ -2,7 +2,6 @@ import { Navigation } from '@/components/Navigation';
 import { HeroSection } from '@/components/HeroSection';
 import { CollectionSeriesSection } from '@/components/CollectionSeriesSection';
 import { ProductShowcase } from '@/components/ProductShowcase';
-import { CollectionSection } from '@/components/CollectionSection';
 import { Footer } from '@/components/Footer';
 
 const Index = () => {
@@ -12,7 +11,6 @@ const Index = () => {
       <main>
         <HeroSection />
         <CollectionSeriesSection />
-        <CollectionSection />
         <ProductShowcase />
       </main>
       <Footer />
