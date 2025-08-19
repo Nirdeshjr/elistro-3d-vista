@@ -14,6 +14,11 @@ import {
 export const Footer = () => {
   return (
     <footer className="relative bg-elistro-charcoal border-t border-border/20 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+        style={{ backgroundImage: `url('/lovable-uploads/e4e07887-7620-4e43-8427-70f5b5ff0a2e.png')` }}
+      />
       {/* 3D Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 right-0 w-96 h-96">
