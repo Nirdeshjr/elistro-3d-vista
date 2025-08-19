@@ -70,8 +70,13 @@ export const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-depth-gradient" />
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        style={{ backgroundImage: `url('/lovable-uploads/e4e07887-7620-4e43-8427-70f5b5ff0a2e.png')` }}
+      />
+      {/* Background Gradient Overlay */}
+      <div className="absolute inset-0 bg-depth-gradient opacity-90" />
       
       {/* Decorative Elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse" />
