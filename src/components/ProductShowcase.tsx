@@ -1,174 +1,80 @@
-import { useState } from 'react';
-import { Scene3D } from './Scene3D';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Eye, Palette, Shield, Star } from 'lucide-react';
 
-interface Product {
-  id: string;
-  name: string;
-  price: string;
-  category: 'sunglasses' | 'eyeglasses';
-  color: string;
-  features: string[];
-  rating: number;
-  isNew?: boolean;
-}
-
-const products: Product[] = [
+const products = [
   {
-    id: '3',
-    name: 'Sapphire Elite',
-    price: '$399',
-    category: 'sunglasses',
-    color: '#1E3A8A',
-    features: ['Carbon Fiber', 'Polarized', 'Smart Coating'],
-    rating: 5.0,
-    isNew: true
+    id: 1,
+    name: "Aurora",
+    image: "/lovable-uploads/f2c0511c-b997-4423-b0c7-0848e9f823d9.png",
+    badge: "Best Seller",
+    badgeColor: "bg-orange-100 text-orange-800"
+  },
+  {
+    id: 2,
+    name: "Eclipse",
+    image: "/lovable-uploads/4a195fd6-1967-4a63-a225-78d725fa2ff2.png",
+    badge: "Trending",
+    badgeColor: "bg-blue-100 text-blue-800"
+  },
+  {
+    id: 3,
+    name: "Zenith",
+    image: "/lovable-uploads/bba69f44-a769-4e18-bb75-11a5fd43e156.png",
+    badge: "New",
+    badgeColor: "bg-green-100 text-green-800"
   }
 ];
 
 export const ProductShowcase = () => {
-  const [selectedProduct, setSelectedProduct] = useState(products[0]);
-  const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
-
   return (
-    <section id="sunglasses" className="py-20 lg:py-32">
+    <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-playfair font-bold mb-6">
-            Featured <span className="text-gradient">Collection</span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Explore Our <span className="text-primary">Trending Products</span>
           </h2>
-          <p className="subtitle max-w-2xl mx-auto">
-            Experience our handpicked selection of premium eyewear, 
-            each piece crafted with meticulous attention to detail and innovative design.
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            Discover the most popular and highly-rated eyewear trending 
+            worldwide.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          
-          {/* 3D Showcase */}
-          <div className="relative order-2 lg:order-1">
-            <div className="aspect-square bg-depth-gradient rounded-2xl overflow-hidden shadow-elegant">
-              <Scene3D 
-                className="w-full h-full"
-                eyewearColor={selectedProduct.color}
-                autoRotate={true}
-                enableControls={true}
-              />
-            </div>
-            
-            {/* Product Info Overlay */}
-            <div className="absolute bottom-6 left-6 right-6">
-              <div className="elegant-card p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-playfair font-semibold">{selectedProduct.name}</h3>
-                    <p className="text-primary text-lg font-bold">{selectedProduct.price}</p>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 fill-primary text-primary" />
-                    <span className="text-sm font-medium">{selectedProduct.rating}</span>
-                  </div>
+        {/* Filter Buttons */}
+        <div className="flex justify-center gap-4 mb-12">
+          <Button className="bg-primary text-black font-semibold px-6 py-2 rounded-full">
+            Trending Products
+          </Button>
+          <Button variant="ghost" className="text-gray-300 hover:text-white px-6 py-2 rounded-full">
+            Collection Series
+          </Button>
+        </div>
+
+        {/* Product Cards */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {products.map((product) => (
+            <div key={product.id} className="relative group">
+              {/* Product Card */}
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-300 hover:scale-105">
+                <div className="relative p-8 h-80 flex items-center justify-center">
+                  <Badge className={`absolute top-4 left-4 ${product.badgeColor} text-xs font-semibold px-3 py-1`}>
+                    {product.badge}
+                  </Badge>
+                  <img 
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {selectedProduct.features.map((feature) => (
-                    <Badge key={feature} variant="secondary" className="text-xs">
-                      {feature}
-                    </Badge>
-                  ))}
-                </div>
-                
-                <Button className="w-full luxury-button">
-                  Add to Cart
-                </Button>
+              </div>
+              
+              {/* Product Name */}
+              <div className="mt-6 text-center">
+                <h3 className="text-2xl font-bold text-white">{product.name}</h3>
               </div>
             </div>
-          </div>
-
-          {/* Product Selection */}
-          <div className="order-1 lg:order-2 space-y-6">
-            <div className="flex gap-2 mb-8">
-              <Button 
-                variant="outline" 
-                size="sm"
-                className="border-primary text-primary bg-primary/10"
-              >
-                All Products
-              </Button>
-              <Button variant="ghost" size="sm">Sunglasses</Button>
-              <Button variant="ghost" size="sm">Eyeglasses</Button>
-            </div>
-
-            <div className="space-y-4">
-              {products.map((product) => (
-                <div
-                  key={product.id}
-                  className={`elegant-card p-6 cursor-pointer transition-all duration-300 ${
-                    selectedProduct.id === product.id 
-                      ? 'ring-2 ring-primary shadow-glow' 
-                      : 'hover:shadow-elegant'
-                  }`}
-                  onClick={() => setSelectedProduct(product)}
-                  onMouseEnter={() => setHoveredProduct(product.id)}
-                  onMouseLeave={() => setHoveredProduct(null)}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h4 className="font-playfair font-semibold text-lg">{product.name}</h4>
-                        {product.isNew && (
-                          <Badge className="bg-primary text-primary-foreground">New</Badge>
-                        )}
-                      </div>
-                      
-                      <p className="text-primary font-bold text-lg mb-3">{product.price}</p>
-                      
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Eye className="w-4 h-4" />
-                          <span>{product.category}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Palette className="w-4 h-4" />
-                          <div 
-                            className="w-3 h-3 rounded-full border"
-                            style={{ backgroundColor: product.color }}
-                          />
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Star className="w-4 h-4 fill-primary text-primary" />
-                          <span>{product.rating}</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center">
-                      <div 
-                        className="w-8 h-8 rounded-full border-2"
-                        style={{ borderColor: product.color }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Features Grid */}
-            <div className="grid grid-cols-2 gap-4 pt-8">
-              <div className="text-center p-4 rounded-lg bg-primary/5">
-                <Shield className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-sm font-medium">Lifetime Warranty</div>
-              </div>
-              <div className="text-center p-4 rounded-lg bg-accent/5">
-                <Eye className="w-8 h-8 text-accent mx-auto mb-2" />
-                <div className="text-sm font-medium">Virtual Try-On</div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
